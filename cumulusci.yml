@@ -1,5 +1,22 @@
 minimum_cumulusci_version: "3.16.0"
 project:
-    name: 
+    name: SFCumulus
     dependencies:
       
+tasks:
+    generate_campaign:
+        class_path: cumulusci.tasks.bulkdata.generate_and_load_data_from_yaml.GenerateAndLoadDataFromYaml
+        options:
+            generator_yaml: Campaign.yml
+    generate_sf_objects:
+        class_path: cumulusci.tasks.bulkdata.generate_and_load_data_from_yaml.GenerateAndLoadDataFromYaml
+        options:
+            generator_yaml: MainDataSource.yml
+
+flows:
+    run_everything:
+        steps:
+            1:
+                task: generate_campaign
+            2:
+                task: generate_sf_objects
