@@ -1,0 +1,4 @@
+- object: Campaign
+  just_once: True
+  fields:
+    name: The Campaign

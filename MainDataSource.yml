@@ -1,0 +1,324 @@
+- include_file: Campaign.yml
+# Account
+- object: Account
+  count: 100
+  fields:
+    name:
+      fake: company
+    Type:
+      random_choice:
+        - Prospect
+        - Customer - Direct
+        - Customer - Channel
+        - Channel Partner / Reseller
+        - Installation Partner
+        - Technology Partner
+        - Other
+    BillingStreet:
+      fake.text:
+        max_nb_chars: 100
+    BillingCity:
+      fake: city
+    BillingState:
+      fake: state
+    BillingPostalCode:
+      fake: postalcode
+    BillingCountry:
+      fake: country
+    BillingLatitude:
+      fake: latitude
+    BillingLongitude:
+      fake: longitude
+    ShippingStreet:
+      fake.text:
+        max_nb_chars: 100
+    ShippingCity:
+      fake: city
+    ShippingState:
+      fake: state
+    ShippingPostalCode:
+      fake: postalcode
+    ShippingCountry:
+      fake: country
+    ShippingLatitude:
+      fake: latitude
+    ShippingLongitude:
+      fake: longitude
+    Phone:
+      fake: phone_number
+    Industry:
+      random_choice:
+        - Agriculture
+        - Apparel
+        - Banking
+        - Biotechnology
+        - Chemicals
+        - Communications
+        - Construction
+        - Consulting
+        - Education
+        - Electronics
+        - Energy
+        - Engineering
+        - Entertainment
+        - Environmental
+        - Finance
+        - Food & Beverage
+        - Government
+        - Healthcare
+        - Hospitality
+        - Insurance
+        - Machinery
+        - Manufacturing
+        - Media
+        - Not For Profit
+        - Recreation
+        - Retail
+        - Shipping
+        - Technology
+        - Telecommunications
+        - Transportation
+        - Utilities
+        - Other
+    AnnualRevenue:
+      random_number:
+        min: 1
+        max: 100000
+    NumberOfEmployees:
+      random_number:
+        min: 1
+        max: 100000
+    Ownership:
+      random_choice:
+        - Public
+        - Private
+        - Subsidiary
+        - Other
+    TickerSymbol:
+      fake.text:
+        max_nb_chars: 20
+    Description:
+      fake.text:
+        max_nb_chars: 100
+    Rating:
+      random_choice:
+        - Hot
+        - Warm
+        - Cold
+    Site:
+      fake.text:
+        max_nb_chars: 80
+    AccountSource:
+      random_choice:
+        - Web
+        - Phone Inquiry
+        - Partner Referral
+        - Purchased List
+        - Other
+    DunsNumber:
+      fake.text:
+        max_nb_chars: 9
+    Tradestyle:
+      fake.text:
+        max_nb_chars: 100
+    NaicsCode:
+      fake: postalcode
+    NaicsDesc:
+      fake.text:
+        max_nb_chars: 100
+    YearStarted:
+      fake: year
+    SicDesc:
+      fake.text:
+        max_nb_chars: 80
+# Contact
+  friends:
+    - object: Contact
+      count:
+        random_number:
+          min: 10
+          max: 30
+      fields:
+        LastName:
+          fake: first_name
+        FirstName:
+          fake: last_name
+        Salutation:
+          random_choice:
+            Mr.: 40%
+            Ms.: 40%
+            Dr.: 10%
+            Prof.: 10%
+        OtherStreet:
+          fake.text:
+            max_nb_chars: 100
+        OtherCity:
+          fake: city
+        OtherState:
+          fake: state
+        OtherPostalCode:
+          fake: postalcode
+        OtherCountry:
+          fake: country
+        OtherLatitude:
+          fake: latitude
+        OtherLongitude:
+          fake: longitude
+        OtherGeocodeAccuracy:
+          random_choice:
+            - Address
+            - NearAddress
+            - Block
+            - Street
+            - ExtendedZip
+            - Zip
+            - Neighborhood
+            - City
+            - County
+            - State
+            - Unknown
+        MailingStreet:
+          fake.text:
+            max_nb_chars: 100
+        MailingCity:
+          fake: city
+        MailingState:
+          fake: state
+        MailingPostalCode:
+          fake: postalcode
+        MailingCountry:
+          fake: country
+        MailingLatitude:
+          fake: latitude
+        MailingLongitude:
+          fake: longitude
+        MailingGeocodeAccuracy:
+          random_choice:
+            - Address
+            - NearAddress
+            - Block
+            - Street
+            - ExtendedZip
+            - Zip
+            - Neighborhood
+            - City
+            - County
+            - State
+            - Unknown
+        Phone:
+          fake: phone_number
+        Fax:
+          fake: phone_number
+        MobilePhone:
+          fake: phone_number
+        HomePhone:
+          fake: phone_number
+        OtherPhone:
+          fake: phone_number
+        AssistantPhone:
+          fake: phone_number
+        ReportsToId:
+          reference: BossContact # you need to have defined this Contact elsewhere (its at the top)
+        Email:
+          fake: email
+        Title:
+          fake.text:
+            max_nb_chars: 100
+        Department:
+          fake.text:
+            max_nb_chars: 80
+        AssistantName:
+          fake: name
+        LeadSource:
+          random_choice:
+            - Web
+            - Phone Inquiry
+            - Partner Referral
+            - Purchased List
+            - Other
+        Birthdate:
+          date_between:
+            start_date: -1y
+            end_date: today
+        Description:
+          fake.text:
+            max_nb_chars: 100
+        EmailBouncedReason:
+          fake.text:
+            max_nb_chars: 100
+#Opportunity
+      friends:
+        - object: Opportunity
+          count:
+            random_number:
+              min: 1
+              max: 7
+          fields:
+            Name: The ${{Contact.LastName}} Opportunity
+            Description:
+              fake.text:
+                max_nb_chars: 100
+            StageName:
+              random_choice:
+                - Prospecting
+                - Qualification
+                - Needs Analysis
+                - Value Proposition
+                - Id. Decision Makers
+                - Perception Analysis
+                - Proposal/Price Quote
+                - Negotiation/Review
+                - Closed Won
+                - Closed Lost
+                - Pledged
+            Amount:
+              random_number:
+                min: 1
+                max: 100000
+            TotalOpportunityQuantity:
+              random_number:
+                min: 1
+                max: 100000
+            CloseDate:
+              date_between:
+                start_date: -1y
+                end_date: today
+            Type:
+              random_choice:
+                - Existing Customer - Upgrade
+                - Existing Customer - Replacement
+                - Existing Customer - Downgrade
+                - New Customer
+            NextStep:
+              fake.text:
+                max_nb_chars: 100
+            LeadSource:
+              random_choice:
+                - Web
+                - Phone Inquiry
+                - Partner Referral
+                - Purchased List
+                - Other
+            ContactId:
+              reference: Contact
+            AccountId:
+              reference: Account
+          friends:
+#OppContactRole 
+            - object: OpportunityContactRole
+              count: 
+                random_number:
+                  min: 1
+                  max: 7
+              fields:
+                OpportunityId:
+                  reference: Opportunity
+                ContactId:
+                  reference: Contact
+                Role:
+                  random_choice:
+                    Business User: 20%
+                    Decision Maker: 20%
+                    Economic Buyer: 20%
+                    Economic Decision Maker: 20%
+                    Evaluator: 20%
