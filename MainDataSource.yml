@@ -305,7 +305,7 @@
             ContactId:
               reference: Contact
             AccountId:
-              reference: Contact.AccountId
+              reference: Account
             CampaignId:
               reference: Campaign
 #OppContactRole 
@@ -338,7 +338,7 @@
                     ContactId:
                       reference: Contact
                     AccountId:
-                      reference: Contact.AccountId
+                      reference: Account
                     Type:
                       random_choice: 
                         - Mechanical
