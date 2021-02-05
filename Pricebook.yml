@@ -1,0 +1,12 @@
+#Pricebooks
+
+- object: PriceBook2
+  just_once: True
+  nickname: StandardPB
+  fields:
+    Name: 
+      Value: Standard Company Pricebook
+    Description:
+      Value: For all products
+    IsStandard:
+      Value: True

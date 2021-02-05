@@ -1,0 +1,30 @@
+- plugin: faker_microservice.Provider
+- include_file: Pricebook.yml
+- object: Product2
+  count: 50
+  fields:
+    Name: 
+      fake:
+          microservice
+    IsActive:
+      Value: True
+    ProductCode:
+      fake: swift11
+    Description:
+      fake: catch_phrase
+    friends:
+      - object: PricebookEntry
+        fields:
+          IsActive:
+            Value: True
+          PriceBook2Id:
+            Reference: PriceBook2
+          Product2Id:
+            Reference: Product2
+          UnitPrice:
+            random_number:
+              min: 100
+              max: 1500
+          
+
+

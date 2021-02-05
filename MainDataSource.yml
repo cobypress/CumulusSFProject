@@ -1,4 +1,8 @@
 - include_file: Campaign.yml
+- include_file: Pricebook.yml
+- include_file: Product.yml
+
+      
 # Account
 - object: Account
   count: 20
@@ -308,71 +312,98 @@
               reference: Account
             CampaignId:
               reference: Campaign
-#OppContactRole 
+            PriceBook2Id:
+              reference: PriceBook2
+#OppProducts
           friends:
-            - object: OpportunityContactRole
-              count: 
-                random_number:
-                  min: 1
-                  max: 3
+            - object: OpportunityLineItem
               fields:
+                ServiceDate:
+                  date_between:
+                    start_date: -1y
+                    end_date: today
+                UnitPrice:
+                  random_number:
+                    min: 100
+                    max: 1500
+                Quantity:
+                  random_number:
+                    min: 1
+                    max: 50
                 OpportunityId:
                   reference: Opportunity
-                ContactId:
-                  reference: Contact
-                Role:
-                  random_choice:
-                    Business User: 20%
-                    Decision Maker: 20%
-                    Economic Buyer: 20%
-                    Economic Decision Maker: 20%
-                    Evaluator: 20%
-#Case
+                Product2Id:
+                  reference: Product2
+                Description:
+                  fake: catch_phrase
+#OppContactRole 
               friends:
-                - object: Case
-                  count:
+                - object: OpportunityContactRole
+                  count: 
                     random_number:
                       min: 1
-                      max: 3
+                      max: 2
                   fields:
+                    OpportunityId:
+                      reference: Opportunity
                     ContactId:
                       reference: Contact
-                    AccountId:
-                      reference: Account
-                    Type:
-                      random_choice: 
-                        - Mechanical
-                        - Electrical
-                        - Electronic
-                        - Structural
-                        - Other
-                    Reason:
+                    Role:
                       random_choice:
-                        - Installation
-                        - Equipment Complexity
-                        - Performance
-                        - Breakdown
-                        - Equipment Design
-                        - Feedback
-                        - Other
-                    Origin:
-                      random_choice:
-                        - Phone
-                        - Email
-                        - Web
-                    Priority:
-                      random_choice:
-                        - Low
-                        - Medium
-                        - High
-                    Description:
-                      fake.text:
-                        max_nb_chars: 100
-                    Subject:
-                      fake.text:
-                        max_nb_chars: 100
-                    Comments:
-                      fake.text:
-                        max_nb_chars: 100
-                    
-
+                        Business User: 20%
+                        Decision Maker: 20%
+                        Economic Buyer: 20%
+                        Economic Decision Maker: 20%
+                        Evaluator: 20%
+#Case
+                  friends:
+                    - object: Case
+                      count:
+                        random_number:
+                          min: 0
+                          max: 2
+                      fields:
+                        ContactId:
+                          reference: Contact
+                        AccountId:
+                          reference: Account
+                        Type:
+                          random_choice: 
+                            - Mechanical
+                            - Electrical
+                            - Electronic
+                            - Structural
+                            - Other
+                        Reason:
+                          random_choice:
+                            - Installation
+                            - Equipment Complexity
+                            - Performance
+                            - Breakdown
+                            - Equipment Design
+                            - Feedback
+                            - Other
+                        Origin:
+                          random_choice:
+                            - Phone
+                            - Email
+                            - Web
+                        Priority:
+                          random_choice:
+                            - Low
+                            - Medium
+                            - High
+                        Status:
+                          random_choice:
+                            - New
+                            - Working
+                            - Escalated
+                        Description:
+                          fake.text:
+                            max_nb_chars: 100
+                        Subject:
+                          fake.text:
+                            max_nb_chars: 100
+                        Comments:
+                          fake.text:
+                            max_nb_chars: 100

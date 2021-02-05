@@ -11,6 +11,14 @@ tasks:
         class_path: cumulusci.tasks.bulkdata.generate_and_load_data_from_yaml.GenerateAndLoadDataFromYaml
         options:
             generator_yaml: MainDataSource.yml
+    generate_pricebooks:
+        class_path: cumulusci.tasks.bulkdata.generate_and_load_data_from_yaml.GenerateAndLoadDataFromYaml
+        options:
+            generator_yaml: Pricebook.yml
+    generate_products:
+        class_path: cumulusci.tasks.bulkdata.generate_and_load_data_from_yaml.GenerateAndLoadDataFromYaml
+        options:
+            generator_yaml: Product.yml
 
 flows:
     run_everything:
@@ -18,4 +26,8 @@ flows:
             1:
                 task: generate_campaign
             2:
+                task: generate_pricebooks
+            3:
+                task: generate_products
+            4:
                 task: generate_sf_objects
