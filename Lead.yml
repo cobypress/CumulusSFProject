@@ -1,0 +1,78 @@
+- object: Lead
+  count: 10
+  fields:
+    LastName:
+      fake: last_name
+      FirstName:
+        fake: first_name
+      Salutation:
+        random_choice:
+          Mr.: 40%
+          Ms.: 40%
+          Dr.: 10%
+          Prof.: 10%
+      Street:
+        fake.text:
+          max_nb_chars: 100
+      City:
+        fake: city
+      State:
+        fake: state
+      PostalCode:
+        fake: postalcode
+      Country:
+        fake: country
+      Industry:
+        random_choice:
+          - Agriculture
+          - Apparel
+          - Banking
+          - Biotechnology
+          - Chemicals
+          - Communications
+          - Construction
+          - Consulting
+          - Education
+          - Electronics
+          - Energy
+          - Engineering
+          - Entertainment
+          - Environmental
+          - Finance
+          - Food & Beverage
+          - Government
+          - Healthcare
+          - Hospitality
+          - Insurance
+          - Machinery
+          - Manufacturing
+          - Media
+          - Not For Profit
+          - Recreation
+          - Retail
+          - Shipping
+          - Technology
+          - Telecommunications
+          - Transportation
+          - Utilities
+          - Other
+      Status:
+        random_choice:
+          - Open - Not Contacted
+          - Working - Contacted
+      LeadSource:
+        random_choice:
+          - Web
+          - Phone Inquiry
+          - Partner Referral
+          - Purchased List
+          - Other
+      Description:
+        fake.text:
+            max_nb_chars: 100
+      Mobile:
+        fake: phone_number
+      Phone:
+        fake: phone_number
+      Email:
+        fake: email
