@@ -1,8 +1,7 @@
 minimum_cumulusci_version: "3.16.0"
 project:
     name: CumulusSFProject
-    dependencies:
-      
+
 tasks:
     generate_campaign:
         class_path: cumulusci.tasks.bulkdata.generate_and_load_data_from_yaml.GenerateAndLoadDataFromYaml
