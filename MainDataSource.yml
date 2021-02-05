@@ -247,7 +247,7 @@
           fake.text:
             max_nb_chars: 100
         AccountId:
-          Reference: Account
+          reference: Account
 #Opportunity 
       friends:
         - object: Opportunity
