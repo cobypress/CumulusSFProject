@@ -217,8 +217,8 @@
           fake: phone_number
         AssistantPhone:
           fake: phone_number
-        ReportsToId:
-          reference: BossContact # you need to have defined this Contact elsewhere (its at the top)
+        # ReportsToId:
+        # reference: BossContact # you need to have defined this Contact elsewhere (its at the top)
         Email:
           fake: email
         Title:
