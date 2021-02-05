@@ -1,6 +1,6 @@
 minimum_cumulusci_version: "3.16.0"
 project:
-    name: SFCumulus
+    name: CumulusSFProject
     dependencies:
       
 tasks:
