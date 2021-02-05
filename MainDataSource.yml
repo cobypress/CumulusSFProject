@@ -248,6 +248,7 @@
             max_nb_chars: 100
         AccountId:
           reference: Account
+
 #Opportunity 
       friends:
         - object: Opportunity
@@ -275,7 +276,7 @@
                 - Pledged
             Amount:
               random_number:
-                min: 1
+                min: 1000
                 max: 100000
             TotalOpportunityQuantity:
               random_number:
@@ -304,9 +305,11 @@
             ContactId:
               reference: Contact
             AccountId:
-              reference: Account
-          friends:
+              reference: Contact.AccountId
+            CampaignId:
+              reference: Campaign
 #OppContactRole 
+          friends:
             - object: OpportunityContactRole
               count: 
                 random_number:
@@ -324,3 +327,52 @@
                     Economic Buyer: 20%
                     Economic Decision Maker: 20%
                     Evaluator: 20%
+#Case
+              friends:
+                - object: Case
+                  count:
+                    random_number:
+                      min: 1
+                      max: 3
+                  fields:
+                    ContactId:
+                      reference: Contact
+                    AccountId:
+                      reference: Contact.AccountId
+                    Type:
+                      random_choice: 
+                        - Mechanical
+                        - Electrical
+                        - Electronic
+                        - Structural
+                        - Other
+                    Reason:
+                      random_choice:
+                        - Installation
+                        - Equipment Complexity
+                        - Performance
+                        - Breakdown
+                        - Equipment Design
+                        - Feedback
+                        - Other
+                    Origin:
+                      random_choice:
+                        - Phone
+                        - Email
+                        - Web
+                    Priority:
+                      random_choice:
+                        - Low
+                        - Medium
+                        - High
+                    Description:
+                      fake.text:
+                        max_nb_chars: 100
+                    Subject:
+                      fake.text:
+                        max_nb_chars: 100
+                    Comments:
+                      fake.text:
+                        max_nb_chars: 100
+                    
+
