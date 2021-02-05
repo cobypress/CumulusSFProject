@@ -1,7 +1,7 @@
 - include_file: Campaign.yml
 # Account
 - object: Account
-  count: 100
+  count: 20
   fields:
     name:
       fake: company
