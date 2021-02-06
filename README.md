@@ -1,18 +1,36 @@
-# Salesforce DX Project: Next Steps
+# Salesforce Test Data Creation with CumulusCI & Snowfakery
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+what you will need - an up to date version of Python and CumulusCI
 
-## How Do You Plan to Deploy Your Changes?
+If you are using Mac and are looking to do quite a lot of work with Python, I would 100% reccomend using HomeBrew, I end up using it atleast once a week to install a package.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+First off I would complete this trail on Trailhead as it gives you a pretty banging understanding of CumulusCI and will walk you through the test of setting it up
 
-## Configure Your Salesforce DX Project
+https://trailhead.salesforce.com/en/content/learn/trails/build-applications-with-cumulusci
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## How to upload?
+
+If you end up getting to a point where you have everything installed and want to get some test data in your org, then run the following commands in terminal - 
+
+To connect your org - cci org connect
+To run the flow - cci flow run run_everything --org {Your org name}
+
+if you want to run a specific task in CumulusSFProject/cumulusci.yml then you can do cci task run {task name} --org {org name}
 
 ## Read All About It
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Trailhead - https://trailhead.salesforce.com/en/content/learn/trails/build-applications-with-cumulusci
+
+Snowfakery GitHub - https://github.com/SFDO-Tooling/Snowfakery
+
+Snowfakery GitHub Documentation - https://github.com/SFDO-Tooling/Snowfakery/blob/master/docs/index.md
+
+CumulusCI GutHub - https://github.com/SFDO-Tooling/CumulusCI
+
+CumulusCI Documentation - https://cumulusci.readthedocs.io/en/latest/
+
+SnowFakery Documentation - https://snowfakery.readthedocs.io/en/stable/
+
+CumulusCI Partner Training - https://partners.salesforce.com/s/education/general/CumulusCI
+
+HomeBrew - https://brew.sh/
