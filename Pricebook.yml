@@ -4,9 +4,5 @@
   just_once: True
   nickname: StandardPB
   fields:
-    Name: 
-      Value: Standard Company Pricebook
-    Description:
-      Value: For all products
-    IsStandard:
-      Value: True
+    Name: Standard Company Pricebook
+    Description: For all products

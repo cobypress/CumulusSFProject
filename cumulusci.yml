@@ -31,9 +31,9 @@ flows:
                 task: generate_campaign
             2:
                 task: generate_leads
+           #3:
+            #    task: generate_pricebooks
             3:
-                task: generate_pricebooks
-            4:
                 task: generate_products
-            5:
+            4:
                 task: generate_sf_objects

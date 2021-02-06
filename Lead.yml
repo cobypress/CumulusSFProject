@@ -76,3 +76,5 @@
       fake: phone_number
     Email:
       fake: email
+    Company:
+      fake: company

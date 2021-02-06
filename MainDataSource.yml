@@ -312,8 +312,7 @@
               reference: Account
             CampaignId:
               reference: Campaign
-            PriceBook2Id:
-              reference: PriceBook2
+            PriceBook2Id: 01s4L000000YSdAQAW
 #OppProducts
           friends:
             - object: OpportunityLineItem
